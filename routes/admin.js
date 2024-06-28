@@ -4,6 +4,9 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.send('Admin Route');
+});
 router.post('/register', registerAdmin);
 router.post('/login', loginAdmin);
 router.get('/users', authMiddleware, viewAllUsers);

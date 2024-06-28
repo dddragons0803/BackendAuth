@@ -4,6 +4,9 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.send('Auth Route');
+});
 router.post('/register', register);
 router.post('/verify-otp', verifyOTP);
 router.post('/addinformation', addInformation);
