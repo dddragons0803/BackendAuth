@@ -9,6 +9,8 @@ const app = express();
 app.use(bodyParser.json());
 
 
+app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
