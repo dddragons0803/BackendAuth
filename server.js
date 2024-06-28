@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
-
+const setupSwagger = require('./swagger');
 require('dotenv').config();
 
 const app = express();
@@ -13,6 +13,8 @@ app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+
+setupSwagger(app);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
